@@ -318,7 +318,7 @@ pub extern crate rustc_serialize as serialize;
 #[cfg(feature="with-unix-sockets")]
 extern crate unix_socket;
 
-#[doc(hidden)]
+// #[doc(hidden)]
 #[cfg(feature="with-rustc-json")]
 pub use serialize::json::Json;
 
@@ -335,7 +335,7 @@ pub use commands::{
     PipelineCommands,
 };
 
-#[doc(hidden)]
+// #[doc(hidden)]
 pub use types::{
     /* low level values */
     Value,

@@ -106,7 +106,7 @@ macro_rules! implement_commands {
         /// commands trait, this returns the pipeline rather than a result
         /// directly.  Other than that it works the same however.
         pub trait PipelineCommands {
-            #[doc(hidden)]
+            // #[doc(hidden)]
             #[inline]
             fn perform(&mut self, con: &Cmd) -> &mut Self;
 

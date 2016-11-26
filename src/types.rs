@@ -433,7 +433,7 @@ pub trait ToRedisArgs: Sized {
 
     /// This only exists internally as a workaround for the lack of
     /// specialization.
-    #[doc(hidden)]
+    // #[doc(hidden)]
     fn make_arg_vec(items: &[Self]) -> Vec<Vec<u8>> {
         let mut rv = vec![];
         for item in items.iter() {
@@ -442,7 +442,7 @@ pub trait ToRedisArgs: Sized {
         rv
     }
 
-    #[doc(hidden)]
+    // #[doc(hidden)]
     fn is_single_vec_arg(items: &[Self]) -> bool {
         items.len() == 1 && items[0].is_single_arg()
     }
@@ -574,7 +574,7 @@ impl ToRedisArgs for json::Json {
 macro_rules! to_redis_args_for_tuple {
     () => ();
     ($($name:ident,)+) => (
-        #[doc(hidden)]
+        // #[doc(hidden)]
         impl<$($name: ToRedisArgs),*> ToRedisArgs for ($($name,)*) {
             // we have local variables named T1 as dummies and those
             // variables are unused.
@@ -663,7 +663,7 @@ pub trait FromRedisValue: Sized {
 
     /// This only exists internally as a workaround for the lack of
     /// specialization.
-    #[doc(hidden)]
+    // #[doc(hidden)]
     fn from_byte_vec(_vec: &[u8]) -> Option<Vec<Self>> {
         None
     }
@@ -838,7 +838,7 @@ impl FromRedisValue for () {
 macro_rules! from_redis_value_for_tuple {
     () => ();
     ($($name:ident,)+) => (
-        #[doc(hidden)]
+        // #[doc(hidden)]
         impl<$($name: FromRedisValue),*> FromRedisValue for ($($name,)*) {
             // we have local variables named T1 as dummies and those
             // variables are unused.
